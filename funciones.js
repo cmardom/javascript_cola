@@ -1,13 +1,13 @@
 let personas=[
-    {id: 1, nombre:"Oscar"},
-    {id: 2, nombre:"Alberto"},
-    {id: 3, nombre:"Miguel"},
-    {id: 4, nombre:"Pablo"}
+    {id: 81, nombre:"Oscar"},
+    {id: 82, nombre:"Alberto"},
+    {id: 83, nombre:"Miguel"},
+    {id: 84, nombre:"Pablo"}
 ];
 
-//let turno=0;
-//let cola=[];
-//let chat=[];
+let turno=0;
+let cola=[];
+let chat=[];
 
 const etq_tarjetas = document.getElementById("tarjetas");
 const etq_turno = document.getElementById("turno");
@@ -28,7 +28,8 @@ function dibujarTarjetas(){
         etq_h5.innerText = persona.nombre;
         let etq_button = document.createElement("button");
         etq_button.innerText = "Pedir turno";
-        etq_button.className = "btn btn-primary"
+        etq_button.className = "btn btn-primary";
+        etq_button.id = "boton";
         etq_button.addEventListener("click", () => cambiarEstado(persona.id));
         etq_cardbody.append(etq_h5);
         etq_cardbody.append(etq_button);
@@ -42,7 +43,22 @@ function dibujarTarjetas(){
 
 
 function cambiarEstado(number){
-    console.log(number);
-    etq_turno.innerText = personas[number-1].nombre;
+    let etq_button = document.getElementById("boton");
     
+    if (turno === 0){
+        let p = personas.find(x => x.id ===number);
+        etq_turno.innerText = p.nombre;
+        turno = p.id;
+        etq_button.innerText = "Acabar turno";
+        
+    } else {
+        if (!cola.includes(number)){
+            cola.push(number);
+            etq_cola.innerText = cola.join(",");
+
+        }
+        
+        
+    }
+
 }

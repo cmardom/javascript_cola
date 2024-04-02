@@ -5,12 +5,10 @@
     {id: 4, nombre:"Pablo"}
 ];*/
 
-let turno=0;
-let cola=[];
-let chat=[];
+// let turno=0;
+// let cola=[];
+// let chat=[];
 
 dibujarTarjetas();
 
 
-
-cambiarEstado();
