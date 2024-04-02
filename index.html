@@ -1,15 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>EjemploTurnosJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header>
-    <p>Turno: <small> </small></p>
-    <p>Cola: <small></small></p>
-</header>
+<div class="container-fluid">
+    <div class="row mt-3 mb-3">
+        <!-- **** CONTROL **** -->
+        <div class="col-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2">
+                        Turno: <span id="turno"></span>
+                    </div>
+                    <div class="col-6">
+                        Cola: <span id="cola"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- **** TARJETAS **** -->
+        <div class="col-9">
+            <div class="container-fluid">
+                <div class="row" id="tarjetas">
+
+                    <!-- HACER ESTA PARTE DINÁMICA -->
+                   <!-- <div class="card col">
+                        <img id="img0" src="./images/joven3a.png" class="card-img-top" alt="persona0">
+                        <div class="card-body">
+                            <h5 class="card-title">{{persona0}}</h5>
+                            <button click="cambiarEstado(0)" class="btn btn-primary">Pedir turno</button>
+                        </div>
+                    </div>
+                    <div class="card col">
+                        <img id="img1" src="./images/joven3a.png" class="card-img-top" alt="persona1">
+                        <div class="card-body">
+                            <h5 class="card-title">{{persona1}}</h5>
+                            <button click="cambiarEstado(1)" class="btn btn-primary">Pedir turno</button>
+                        </div>
+                    </div>
+                    <div class="card col">
+                        <img id="img2" src="./images/joven3a.png" class="card-img-top" alt="persona2">
+                        <div class="card-body">
+                            <h5 class="card-title">{{persona2}}</h5>
+                            <button click="cambiarEstado(2)" class="btn btn-primary">Pedir turno</button>
+                        </div>
+                    </div>-->
+
+                    <!-- FIN PARTE DINÁMICA -->
 
 
+                </div>
+            </div>
+        </div>
+        <!-- **** CHAT **** -->
+        <div class="col-2" id="chat">
+            <p>chat works!</p>
+        </div>
+    </div>
+
+</div>
+<script src="funciones.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
