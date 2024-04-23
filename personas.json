@@ -1,0 +1,8 @@
+{
+  "personas": [
+    {"id": 81, "nombre": "Oscar"},
+    {"id": 82, "nombre": "Alberto"},
+    {"id": 83, "nombre": "Miguel"},
+    {"id": 84, "nombre": "Pablo"}
+  ]
+}

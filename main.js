@@ -9,6 +9,5 @@
 // let cola=[];
 // let chat=[];
 
-dibujarTarjetas();
-
+cargarPersonas();
 

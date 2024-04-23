@@ -13,6 +13,25 @@ const etq_tarjetas = document.getElementById("tarjetas");
 const etq_turno = document.getElementById("turno");
 const etq_cola = document.getElementById("cola");
 
+
+function cargarPersonas(){
+    fetch('personas.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            dibujarTarjetas();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+}
+
+
 function dibujarTarjetas(){
     for (const persona of personas) {
 
@@ -73,32 +92,44 @@ function antiguoCambiarEstado(number){
             cola.push(number);
             etq_cola.innerText = cola.join(",");
             botonPulsado.innerText = "Esperando...";
-            console.log(imagen.id);
             imagen.src = "images/joven3b.png"
 
 
 
+        // Si se arrepiente de haber pedido el turno
+        } else {
+            botonPulsado.innerText="Pedir turno";
+            imagen.src = "images/joven3a.png";
+            //let borrarDeCola = etq_cola.find(x => x.id ===number);
+            //etq_cola.splice(borrarDeCola, 1);
+            cola=cola.filter(x => x!=number);
+            etq_cola.innerText = cola.join(",");
 
         }
 
         //Si vuelve a pulsar cuando tiene el turno == dejar el turno
     } else if (turno === number){
         turno = 0;
-            if (cola.length !== 0){
+        etq_turno.innerText = "";
+        imagen.src= "/images/joven3a.png";
+        botonPulsado.innerText = "Pedir turno";
+        if (cola.length !== 0){
                 let primero = cola[0];
                 etq_turno.innerText = personas.find(x=> x.id === primero).nombre;
 
                 cola.shift();
                 etq_cola.innerText = cola.toString();
                 turno = primero;
-                botonPulsado.innerText = "Pedir turno";
+                
                 let siguienteBoton = document.getElementById("boton"+primero);
                 let siguienteImagen = document.getElementById("imagen"+primero);
 
-                imagen.src= "/images/joven3a.png";
+                
                 siguienteImagen.src = "/images/joven3c.png";
                 siguienteBoton.innerText = "Acabar turno";
 
+            } else {
+                
             }
     }
 
